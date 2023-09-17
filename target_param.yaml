@@ -1,0 +1,365 @@
+############### Planning ###############
+#-------------- Longitudinal --------------#
+# obstacle_stop_planner.param.yaml
+# /aichallenge/aichallenge_ws/src/aichallenge_submit/autoware_launch/autoware_launch/config/planning/scenario_planning/lane_driving/motion_planning/obstacle_stop_planner/obstacle_stop_planner.param.yaml:
+  # ros__parameters:
+    # stop_planner:
+    #   stop_position:
+    #     max_longitudinal_margin:
+    #         min: 0.0
+    #         max: 5.0
+    #         type: float
+    #     min_longitudinal_margin:
+    #         min: 0.0
+    #         max: 5.0
+    #         type: float
+    # slow_down_planner:
+    #   slow_down_section:
+    #     longitudinal_forward_margin:
+    #       min: 0.0
+    #       max: 5.0
+    #       type: float
+    #     min_longitudinal_forward_margin:
+    #       min: 0.0
+    #       max: 5.0
+    #       type: float
+
+#-------------- Lateral --------------#
+## (1)scenario_planning
+# common.param.yaml
+# aichallenge/aichallenge_ws/src/aichallenge_submit/autoware_launch/autoware_launch/config/planning/scenario_planning/common/common.param.yaml:
+# ros__parameters:
+
+# behavior_path_planner.param.yaml
+# /aichallenge/aichallenge_ws/src/aichallenge_submit/autoware_launch/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/behavior_path_planner.param.yaml:
+#   ros__parameters:
+#     forward_path_length:
+#       min: 0.0
+#       max: 300.0
+#       type: float
+#     path_interval:
+#       min: 0.0
+#       max: 2.0
+#       type: float
+
+## avoidance.param.yaml
+# /aichallenge/aichallenge_ws/src/aichallenge_submit/autoware_launch/autoware_launch/config/planning/scenario_planning/lane_driving/behavior_planning/behavior_path_planner/avoidance/avoidance.param.yaml:
+#   ros__parameters:
+#     avoidance:
+#       object_envelope_buffer:
+#         min: 0.0
+#         max: 1.0
+#         type: float
+#       avoidance:
+#         lateral:
+#           lateral_collision_margin:
+#             min: 0.0
+#             max: 1.0
+#             type: float
+#           lateral_collision_safety_buffer:
+#             min: 0.0
+#             max: 1.0
+#             type: float
+#           lateral_passable_safety_buffer:
+#             min: 0.0
+#             max: 1.0
+#             type: float
+#           road_shoulder_safety_margin:
+#             min: 0.0
+#             max: 1.0
+#             type: float
+#           avoidance_execution_lateral_threshold:
+#             min: 0.0
+#             max: 0.5
+#             type: float
+#         longitudinal:
+#           prepare_time:
+#             min: 0.0
+#             max: 2.0
+#             type: float
+#           longitudinal_collision_safety_buffer:
+#             min: 0.0
+#             max: 2.0
+#             type: float
+#           min_prepare_distance:
+#             min: 0.0
+#             max: 1.0
+#             type: float
+#           min_avoidance_distance:
+#             min: 0.0
+#             max: 10.0
+#             type: float
+#       constraints:
+#         lateral:
+#           nominal_lateral_jerk:
+#             min: 0.0
+#             max: 100.0
+#             type: float
+#           max_lateral_jerk:
+#             min: 0.0
+#             max: 100.0
+#             type: float
+
+## (2)motion_planning 
+# obstacle_avoidance_planner.param.yaml
+# /aichallenge/aichallenge_ws/src/aichallenge_submit/autoware_launch/autoware_launch/config/planning/scenario_planning/lane_driving/motion_planning/obstacle_avoidance_planner/obstacle_avoidance_planner.param.yaml:
+#   ros__parameters:
+    # common:
+    #   output_delta_arc_length:
+    #     min: 0.0
+    #     max: 1.0
+    #     type: float
+    # replan:
+    #   max_ego_moving_dist:
+    #     min: 0.0
+    #     max: 5.0
+    #     type: float
+    #   max_delta_time_sec:
+    #     min: 0.0
+    #     max: 1.0
+    #     type: float
+    # eb:
+      # common:
+      #   num_points:
+      #     min: 0.0
+      #     max: 100.0
+      #     type: float
+      #   delta_arc_length:
+      #     min: 0.0
+      #     max: 1.0
+      #     type: float
+      # clearance:
+      #   num_joint_points:
+      #     min: 0.0
+      #     max: 3.0
+      #     type: float
+      # weight:
+      #   smooth_weight:
+      #     min: 0.0
+      #     max: 10.0
+      #     type: float
+      #   lat_error_weight:
+      #     min: 0.0
+      #     max: 10.0
+      #     type: float
+    # mpt:
+      # common:
+      #   num_points:
+      #     min: 0.0
+      #     max: 100.0
+      #     type: float
+      #   delta_arc_length:
+      #     min: 0.0
+      #     max: 1.0
+      #     type: float
+      # kinematics:
+      #   optimization_center_offset:
+      #     min: -10.0
+      #     max: 10.0
+      #     type: float
+      # clearance:
+      #   hard_clearance_from_road:
+      #     min: 0.0
+      #     max: 1.0
+      #     type: float
+      #   soft_clearance_from_road:
+      #     min: 0.0
+      #     max: 1.0
+      #     type: float
+      # weight:
+      #   soft_collision_free_weight:
+      #     min: 0.0
+      #     max: 10000.0
+      #     type: float
+      #   lat_error_weight:
+      #     min: 0.0
+      #     max: 10.0
+      #     type: float
+      #   yaw_error_weight:
+      #     min: 0.0
+      #     max: 10.0
+      #     type: float
+      #   yaw_error_rate_weight:
+      #     min: 0.0
+      #     max: 10.0
+      #     type: float
+      #   steer_input_weight:
+      #     min: 0.0
+      #     max: 10.0
+      #     type: float
+      #   steer_rate_weight:
+      #     min: 0.0
+      #     max: 10.0
+      #     type: float
+      #   terminal_lat_error_weight:
+      #     min: 0.0
+      #     max: 1000.0
+      #     type: float
+      #   terminal_yaw_error_weight:
+      #     min: 0.0
+      #     max: 1000.0
+      #     type: float
+      #   goal_lat_error_weight:
+      #     min: 0.0
+      #     max: 1000.0
+      #     type: float
+      #   goal_yaw_error_weight:
+      #     min: 0.0
+      #     max: 1000.0
+      #     type: float
+      # avoidance:
+      #   max_avoidance_cost:
+      #     min: 0.0
+      #     max: 2.0
+      #     type: float
+      #   avoidance_cost_margin:
+      #     min: 0.0
+      #     max: 2.0
+      #     type: float
+      #   avoidance_cost_band_length:
+      #     min: 0.0
+      #     max: 10.0
+      #     type: float
+      #   avoidance_cost_decrease_rate:
+      #     min: 0.0
+      #     max: 0.5
+      #     type: float
+      #   weight:
+      #     lat_error_weight:
+      #       min: 0.0
+      #       max: 100.0
+      #       type: float
+      # collision_free_constraints:
+      #   vehicle_circles:
+      #     bicycle_model:
+      #       num_for_calculation:
+      #         min: 1
+      #         max: 10
+      #         type: int
+      #       front_radius_ratio:
+      #         min: 0.1
+      #         max: 3.0
+      #         type: float
+      #       rear_radius_ratio:
+      #         min: 0.1
+      #         max: 3.0
+      #         type: float
+      #     fitting_uniform_circle:
+      #       num:
+      #         min: 1
+      #         max: 10
+      #         type: int
+
+############### Control ###############
+#-------------- Lateral --------------#
+## (1)MPC
+# /aichallenge/aichallenge_ws/src/aichallenge_submit/autoware_launch/autoware_launch/config/control/trajectory_follower/lateral/mpc.param.yaml:
+#   ros__parameters:
+#     mpc_prediction_horizon: 
+#       min: 5
+#       max: 100
+#       type: int
+#     mpc_prediction_dt: 
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_lat_error:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_heading_error:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_heading_error_squared_vel:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_steering_input:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_steering_input_squared_vel:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_lat_jerk:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_steer_rate:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_steer_acc:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_terminal_lat_error:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+#     mpc_weight_terminal_heading_error:
+#       min: 0.0
+#       max: 1.0
+#       type: float
+
+## (2)Pure Persuit
+/aichallenge/aichallenge_ws/src/aichallenge_submit/autoware_launch/autoware_launch/config/control/trajectory_follower/lateral/pure_pursuit.param.yaml:
+  ros__parameters:
+    ld_velocity_ratio: 
+      min: 0.0
+      max: 5.0
+      type: float
+    ld_lateral_error_ratio: 
+      min: 0.0
+      max: 5.0
+      type: float
+    ld_curvature_ratio: 
+      min: 0.0
+      max: 200.0
+      type: float
+    long_ld_lateral_error_threshold: 
+      min: 0.0
+      max: 2.0
+      type: float
+    min_lookahead_distance: 
+      min: 0.0
+      max: 5.0
+      type: float
+    max_lookahead_distance: 
+      min: 5.0
+      max: 20.0
+      type: float
+    # converged_steer_rad:
+    #   min: 0.0
+    #   max: 1.0
+    #   type: float
+    # reverse_min_lookahead_distance:
+    #   min: 0.0
+    #   max: 10.0
+    #   type: float
+    prediction_ds:
+      min: 0.0
+      max: 1.0
+      type: float
+    prediction_distance_length:
+      min: 0.0
+      max: 10.0
+      type: float
+    resampling_ds:
+      min: 0.0
+      max: 1.0
+      type: float
+    curvature_calculation_distance:
+      min: 0.0
+      max: 5.0
+      type: float
+    # enable_path_smoothing:
+    #   min: 0
+    #   max: 1
+    #   type: int
+    # path_filter_moving_ave_num:
+    #   min: 0
+    #   max: 25
+    #   type: int
