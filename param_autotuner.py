@@ -1,6 +1,8 @@
 import optuna
 import yaml
+import json
 import subprocess
+import psutil
 import matplotlib.pyplot as plt
 from time import sleep
 
@@ -110,15 +112,28 @@ def objective(trial, param_ranges, param_files, target_param):
 
         update_yaml(file, data)
 
-    # run.bashを実行
-    # subprocess.Popen(['bash','/aichallenge/run.sh'])
-
+    # Autowareを起動
+    p_autoware = subprocess.Popen("exec " + "bash /aichallenge/run.sh", shell=True)
     # シミュレータを起動
-    subprocess.Popen(['/aichallenge/aichallenge_ws/AWSIM/AWSIM.x86_64'])
-    sleep(2)
+    p_awsim = subprocess.Popen(['/aichallenge/aichallenge_ws/AWSIM/AWSIM.x86_64'])
+
+    sleep(60*6)
+
+    # シャットダウン
+    # 現在のPythonプロセス以外のすべてのプロセスをキル
+    current_process = psutil.Process()
+    for process in psutil.process_iter(attrs=['pid', 'name']):
+        if process.info['pid'] != current_process.pid:
+            process.terminate()  # プロセスを終了させる
 
     # ユーザーが評価値を入力
-    evaluation = float(input("Enter the evaluation result: "))
+    # evaluation = float(input("Enter the evaluation result: "))
+
+    # jsonから評価値を読み込む
+    with open('/aichallenge/result.json', 'r') as results_file:
+        results = json.load(results_file)
+    
+    evaluation = results['rawDistanceScore']
 
     return evaluation
 
