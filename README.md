@@ -54,3 +54,4 @@ optuna-dashboard sqlite:///Autoware_turning_study.db
 ```python
 study.optimize(lambda trial: objective(trial, param_ranges, param_files, target_param), n_trials=50)
 ```
+・Comments in Autoware parameter files (e.g., obstacle_avoidance_planner.param.yaml) will disappear.
