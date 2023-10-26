@@ -130,10 +130,14 @@ def objective(trial, param_ranges, param_files, target_param):
     # evaluation = float(input("Enter the evaluation result: "))
 
     # jsonから評価値を読み込む
-    with open('/aichallenge/result.json', 'r') as results_file:
-        results = json.load(results_file)
+    try:
+        with open('/aichallenge/result.json', 'r') as results_file:
+            results = json.load(results_file)
     
-    evaluation = results['rawDistanceScore']
+        evaluation = results['rawDistanceScore']
+    
+    except:
+        evaluation = 0.0
 
     return evaluation
 
@@ -193,7 +197,7 @@ def main():
 
     # Optunaでパラメータを最適化
     study = optuna.create_study(direction='maximize', study_name='Autoware_turning_study', storage='sqlite:///Autoware_turning_study.db', load_if_exists=True)
-    study.optimize(lambda trial: objective(trial, param_ranges, param_files, target_param), n_trials=50)
+    study.optimize(lambda trial: objective(trial, param_ranges, param_files, target_param), n_trials=100)
 
     # パラメータの収束を図として表示
     for param in param_ranges:
