@@ -34,7 +34,7 @@ pip install optuna optuna-dashboard
 6. Run 
 
 ```bash
-cd /aichallenge/aichallenge_ws/Autoware_AutoTurn/
+cd /aichallenge/aichallenge_ws/Autoware-Autotune/
 python3 param_autotuner.py 
 ```
 (Option) 7. Run dashboad on anothoer terminal
@@ -43,7 +43,7 @@ python3 param_autotuner.py
 cd ./aichallenge2023-sim/docker
 sudo bash run_container.sh
 pip install optuna optuna-dashboard
-cd /aichallenge/aichallenge_ws/Autoware_AutoTurn/
+cd /aichallenge/aichallenge_ws/Autoware-Autotune/
 optuna-dashboard sqlite:///Autoware_turning_study.db
 ```
 
