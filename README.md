@@ -55,3 +55,13 @@ optuna-dashboard sqlite:///Autoware_turning_study.db
 study.optimize(lambda trial: objective(trial, param_ranges, param_files, target_param), n_trials=50)
 ```
 ・Comments in Autoware parameter files (e.g., obstacle_avoidance_planner.param.yaml) will disappear.
+
+・一部治安が悪い
+```python
+# シャットダウン
+# 現在のPythonプロセス以外のすべてのプロセスをキル
+current_process = psutil.Process()
+for process in psutil.process_iter(attrs=['pid', 'name']):
+    if process.info['pid'] != current_process.pid:
+        process.terminate()  # プロセスを終了させる
+```
