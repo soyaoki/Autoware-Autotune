@@ -47,7 +47,7 @@ cd /aichallenge/aichallenge_ws/Autoware-Autotune/
 optuna-dashboard sqlite:///Autoware_turning_study.db
 ```
 
-## NOTICE
+## NOTE
 
 ・The default iteration is 50 iterations.　（TODO: Make it possible to pass the number of iterations as an argument.）
 
