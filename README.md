@@ -29,9 +29,9 @@ sudo bash run_container.sh
 pip install optuna optuna-dashboard
 ```
 
-5. Edit target parameters in `target_param.yaml`
+5. Edit target parameters in `target_param.yaml`.
 
-6. Run 
+6. Run `param_autotuner.py`.
 
 ```bash
 cd /aichallenge/aichallenge_ws/Autoware-Autotune/
@@ -46,6 +46,8 @@ pip install optuna optuna-dashboard
 cd /aichallenge/aichallenge_ws/Autoware-Autotune/
 optuna-dashboard sqlite:///Autoware_turning_study.db
 ```
+
+Then access "http://127.0.0.1:8080/".
 
 ## NOTE
 
