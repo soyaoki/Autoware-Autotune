@@ -49,7 +49,9 @@ cd /aichallenge/aichallenge_ws/Autoware-Autotune/
 optuna-dashboard sqlite:///Autoware_turning_study.db
 ```
 
-Then access "http://127.0.0.1:8080/".
+Then access "http://127.0.0.1:8080/". You can see the process of parameter optimization on Optuna dashboard.
+
+![](dashboard-example.png)
 
 ## NOTE
 
