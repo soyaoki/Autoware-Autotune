@@ -14,14 +14,14 @@ alpha release
 3. Clone this repository
 
 ```bash
-cd ./aichallenge2023-sim/docker/aichallenge/aichallenge_ws/
+cd ~/aichallenge2023-sim/docker/aichallenge/aichallenge_ws/
 git clone https://github.com/soyaoki/Autoware-Autotune
 ```
 
 4. Run the docker container
 
 ```bash
-cd ./aichallenge2023-sim/docker
+cd ~/aichallenge2023-sim/docker
 sudo bash run_container.sh
 ```
 
