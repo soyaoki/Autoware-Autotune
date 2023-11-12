@@ -9,7 +9,7 @@ alpha release
 
   https://github.com/soyaoki/aichallenge2023-sim/blob/main/documentation/docfx_project/setup/index.md
 
-2. Copy AWSIM-related executables such as `AWSIM.x86_64` under `/aichallenge2023-sim/docker/aichallenge/aichallenge_ws/`.
+2. Copy AWSIM-related executables such as `AWSIM.x86_64` under `/aichallenge2023-sim/docker/aichallenge/aichallenge_ws/AWSIM/`.
 
 3. Clone this repository
 
