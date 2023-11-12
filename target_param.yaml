@@ -304,7 +304,7 @@
 #       max: 1.0
 #       type: float
 
-## (2)Pure Persuit
+## (2)Pure Pursuit
 /aichallenge/aichallenge_ws/src/aichallenge_submit/autoware_launch/autoware_launch/config/control/trajectory_follower/lateral/pure_pursuit.param.yaml:
   ros__parameters:
     ld_velocity_ratio: 
