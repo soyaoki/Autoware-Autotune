@@ -5,27 +5,27 @@ alpha release
 
 ## Installation
 
-1. Set up aichallenge repo with the following reference
+1. Set up aichallenge repo with the following reference.
 
   https://github.com/soyaoki/aichallenge2023-sim/blob/main/documentation/docfx_project/setup/index.md
 
 2. Copy AWSIM-related executables such as `AWSIM.x86_64` under `/aichallenge2023-sim/docker/aichallenge/aichallenge_ws/AWSIM/`.
 
-3. Clone this repository
+3. Clone this repository.
 
 ```bash
 cd ~/aichallenge2023-sim/docker/aichallenge/aichallenge_ws/
 git clone https://github.com/soyaoki/Autoware-Autotune
 ```
 
-4. Run the docker container
+4. Run the docker container.
 
 ```bash
 cd ~/aichallenge2023-sim/docker
 sudo bash run_container.sh
 ```
 
-5. Intstall requirements
+5. Intstall requirements.
 
 ```bash
 pip install optuna optuna-dashboard
@@ -39,7 +39,7 @@ pip install optuna optuna-dashboard
 cd /aichallenge/aichallenge_ws/Autoware-Autotune/
 python3 param_autotuner.py 
 ```
-(Optional) 8. Run dashboad on anothoer terminal
+(Optional) 8. Run dashboad on anothoer terminal.
 
 ```bash
 cd ./aichallenge2023-sim/docker
