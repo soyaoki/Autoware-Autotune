@@ -134,7 +134,8 @@ def objective(trial, param_ranges, param_files, target_param):
         with open('/aichallenge/result.json', 'r') as results_file:
             results = json.load(results_file)
     
-        evaluation = results['rawDistanceScore']
+        # evaluation = results['rawDistanceScore']
+        evaluation = results['distanceScore']
     
     except:
         evaluation = 0.0
